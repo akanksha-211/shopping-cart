@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis:400,600,700");
+body {
+  width: 90%;
+  margin: 0 auto;
+  font-family: Dosis;
+}
+
+*, :after, :before {
+  box-sizing: border-box;
+}
+
+/* Header */
+.main-header {
+  height: 100px;
+  margin: 0 auto;
+}
+
+.LogoAndLinksMenu__LogoContainer {
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+}
+
+.LogoAndLinksMenu__Logo {
+  width: 180px;
+  height: 80px;
+}
+
+.LogoAndLinksMenu__HomeLink {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin-block-end: 0;
+  margin-block-start: 0;
+  padding-inline-start: 0;
+}
+
+.LinkContainer__Link {
+  display: inline-block;
+  padding: 0 20px;
+  line-height: 100px;
+  font-weight: 700;
+  min-width: 44px;
+  color: #6e6d6d;
+}
+
+.header-container {
+  display: flex;
+}
+
+.header-container__item.header-container__item--left {
+  flex: none;
+  display: inline-block;
+}
+
+.LinkContainer {
+  display: inline-block;
+  position: relative;
+  top: -2em;
+  margin-left: 5em;
+}
+
+.LinkContainer__LinkWrapper {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.header-container__item.header-container__item--right {
+  flex: 1;
+  display: inline-flex;
+  position: relative;
+  justify-content: flex-end;
+}
+
+.header-menu__subgroup-container.header-menu__subgroup-container--cart {
+  padding: 5px 10px;
+  background: #c8c8c8;
+}
+
+.header-menu__subgroup {
+  display: inline-flex;
+}
+
+.sigin-in-btn {
+  padding: 0 15px;
+  color: #6e6d6d;
+}
+
+.header-menu__subgroup-container.cart {
+  width: 50px;
+}
+
+.header-menu__subgroup-container.item-total {
+  position: relative;
+  top: -1em;
+}
+
+@media (max-width: 568px) {
+  .LinkContainer, .header-menu__subgroup {
+    display: none;
+  }
+}
+/* Header ends */
+/* Main Content */
+.main.page-content {
+  display: flex;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.page__content--aside, .page__content--article {
+  flex: 1;
+  flex-wrap: wrap;
+  padding: 2em;
+}
+
+.form-group {
+  margin-block-start: 1em;
+}
+
+.form-control {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid;
+  height: 35px;
+}
+
+.login--label {
+  display: block;
+}
+
+.form-control.login {
+  border: none;
+  background: crimson;
+  height: 50px;
+  color: #ffffff;
+}
+
+/* Main content ends */
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,16 @@
+{
+  "name": "sabka-bazaar",
+  "version": "1.0.0",
+  "description": "shopping site",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass --watch ./assets/styles/styles.scss ./assets/styles/styles.css"
+  },
+  "author": "Akanksha Wadhwa",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2"
+  }
+}
