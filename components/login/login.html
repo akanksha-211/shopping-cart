@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sabka Bazaar</title>
+    <link rel="stylesheet" href="../../static/styles/styles.css">
+</head>
+<body>
+    <main>
+        <header id="page-header" class="navbar main-header">
+            <section class="header-container">
+                <nav class="header-container__item header-container__item--left LogoAndLinksMenu">
+                    <div class="LogoAndLinksMenu__LogoContainer">
+                        <a href="#" class="LogoAndLinksMenu__HomeLink">
+                            <img src="../../static/images/logo_2x.png" alt="Sabka Bazaar" title="Sabka Bazaar" class="LogoAndLinksMenu__Logo">
+                        </a>
+                    </div>
+                    <ul class="LinkContainer">
+                        <li class="LinkContainer__LinkWrapper">
+                            <a href="#" class="LinkContainer__Link">
+                                <span class="LinkContainer__Link__text">Home</span>
+                            </a>
+                        </li>
+                        <li class="LinkContainer__LinkWrapper">
+                            <a href="#" class="LinkContainer__Link">
+                                <span class="LinkContainer__Link__text">Products</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="header-container__item header-container__item--right">
+                    <div class="header-menu__subgroup-container header-menu__subgroup-container--login-group">
+                        <ul class="header-menu__subgroup">
+                            <li class="header-menu__item">
+                                <a id="sign-in-btn" href="#" class="sigin-in-btn">
+                                    <span class="signin-button__text">Sign in</span>
+                                </a>
+                            </li>
+                            <li class="header-menu__item">
+                                <a id="sign-up-btn" href="#" class="sigin-in-btn">
+                                    <span class="signup-button__text" data-login-action="signup">Register</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="header-menu__subgroup-container header-menu__subgroup-container--cart">
+                            <img class="header-menu__subgroup-container cart" src="../../static/images/cart.svg">
+                            <span class="header-menu__subgroup-container item-total">0 items</span>
+                        </div>
+                    </div>
+                    
+                </nav>
+            </section>
+        </header>
+        <section class="main page-content" id="page-content">
+            <aside class="page__content--aside">
+                <h2>Login</h2>
+                <h5>Get access to your Orders, Wishlist and Recommendations</h5>
+            </aside>
+            <article class="page__content--article">
+                <form>
+                    <div class="form-group">
+                        <label for="email" class="login--label">Email</label>
+                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="login--label">Password</label>
+                        <input type="password" pattern="" class="form-control password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="form-control login" id="login" name="login">Login</button>
+                    </div>
+                </form>
+            </article>
+        </section>
+        <footer>
+            <section class="page-footer">
+                <span>Copyright © 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd</span>
+            </section>
+        </footer>
+    </main>
+    <script src="../../dist/bundle.js"></script>
+</body>
+</html>

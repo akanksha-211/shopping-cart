@@ -13,6 +13,7 @@ body {
 .main-header {
   height: 100px;
   margin: 0 auto;
+  box-shadow: 0 10px 8px -6px #777;
 }
 
 .LogoAndLinksMenu__LogoContainer {
@@ -142,6 +143,41 @@ ul {
   color: #ffffff;
 }
 
+.category-item {
+  display: flex;
+  margin: 1em auto;
+  box-shadow: 0 10px 8px -6px #777;
+}
+
+.category-item.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.category-item:last-child {
+  box-shadow: none;
+}
+
+.category-detail {
+  text-align: center;
+  flex: 4;
+}
+
+.category-list__button {
+  margin: 0.5em;
+  height: 50px;
+  min-width: 200px;
+  background: crimson;
+  color: white;
+  border: none;
+}
+
 /* Main content ends */
+/* Footer */
+.page-footer {
+  background: #c8c8c8;
+  text-align: center;
+}
+
+/* Footer ends */
 
 /*# sourceMappingURL=styles.css.map */
