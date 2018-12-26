@@ -4,10 +4,4 @@ const CategoryController = require('./home/CatController');
 const catService = new CategoryService();
 const catController = new CategoryController(catService);
 
-catController.findAllItems();
-
-
-// document.querySelector('.category-list__button').addEventListener('click', _ => {
-//     event.preventDefault();
-//     console.log(event.target.innerText);
-// });
+catController.render();

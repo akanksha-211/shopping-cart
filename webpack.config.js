@@ -2,11 +2,14 @@ const path = require('path');
 
 module.exports = {
     entry : {
-        app: './components/index.js'
+        home: './components/home/index.js',
+        login: './components/login/index.js',
+        product: './components/products/index.js',
+        register: './components/register/index.js'
     },
     mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: '[name]-bundle.js'
     }
 }

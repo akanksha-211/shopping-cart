@@ -86,11 +86,7 @@ ul {
     position: relative;
     top: -1em;
 }
-@media (max-width: 568px) {
-    .LinkContainer, .header-menu__subgroup {
-        display: none;
-    }
-}
+
 /* Header ends */
 
 /* Main Content */
@@ -99,6 +95,75 @@ ul {
     width: 70%;
     margin: 0 auto;
 }
+
+/* Carousel */
+* {box-sizing:border-box}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+/* Carousel ends */
 .page__content--aside, .page__content--article
 {
     flex: 1;
@@ -118,7 +183,7 @@ ul {
 .login--label {
     display: block;
 }
-.form-control.login {
+.form-control.login, .form-control.signup {
     border: none;
     background: $crimson;
     height: 50px;
@@ -147,6 +212,78 @@ ul {
     color: white;
     border: none;
 }
+.page-content__products {
+    display: flex;
+    flex-wrap: wrap;
+}
+.page-content__category {
+    flex: 1;
+    background: $grey3;
+    // margin: 1em auto;
+}
+.category-dropdown.small {
+    display: none;
+}
+.nav-list {
+    padding-left: 10px;    
+}
+.nav-list-item {
+    border-bottom: 1px dotted;
+    padding: 10px 20px;
+}
+.page-content__productsList {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 3;
+}
+/* Card */
+.card {
+    box-shadow: 4px 0 8px -5px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+  
+  .price {
+    color: grey;
+    font-size: 22px;
+  }
+  .card-content {
+      display: flex;
+      flex-wrap: wrap;
+  }
+  .product-price {
+      flex: 1;
+  }
+  .card-button {
+      flex: 2;
+  }
+
+  .card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: $crimson;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+  
+  .card button:hover {
+    opacity: 0.7;
+  }
+
+  .card button.large {
+      visibility: visible;
+  }
+  .card button.small {
+    visibility: hidden;
+}
+  
+/* Card ends */
 /* Main content ends */
 
 /* Footer */
@@ -155,3 +292,28 @@ ul {
     text-align: center;
 }
 /* Footer ends */
+
+@media (max-width: 568px) {
+    .LinkContainer, .header-menu__subgroup {
+        display: none;
+    }
+    .card button.small {
+        visibility: visible;
+    }
+    .card button.large {
+        visibility: hidden;
+    }
+    .category-dropdown.small{
+        display: block;
+        background: $crimson;
+        color: white;
+        padding: 1em;
+    }
+    .category-dropdown.small a{
+        float: right;
+        color: white;
+    }
+    .nav-list {
+        display: none;
+    }
+}

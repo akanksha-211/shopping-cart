@@ -7,36 +7,56 @@ class CategoryController {
     constructor(catService) {
         this.catService = catService;
     }
-    
+    render(){
+        this.getBannerItems();
+        this.findAllCategories();
+    }
     // to load data from json and display in html
-    findAllItems() {
+    findAllCategories() {
         catService.findAll()
         .then((res) => { 
             const ul = document.querySelector(".categories");
-            res.forEach((element, index) => {
-                const li = document.createElement('li');
-                let liClass = '';
-                if(index%2 === 0) {
-                    liClass = 'row';
+            let counter = 0;
+            res.forEach(element => {
+                if(element.enabled) {
+                    const li = document.createElement('li');
+                    let liClass = '';
+                    if(counter%2 === 0) {
+                        liClass = 'row';
+                    }
+                    else {
+                    liClass = 'row-reverse'
+                    }
+                    li.className = 'category-item '+liClass;
+                    li.innerHTML = '<img src="../..'+element.imageUrl+'" alt="'+element.name+
+                    '" width="250" height="175" class="category-image"><ul class="category-detail"><li><h3>'+element.name+
+                    '</h3></li><li>'+element.description+'</li><li><button type="button" class="category-list__button">'+element.name+'</button></li></ul>';
+                    ul.appendChild(li);
+                    counter++;
                 }
-                else {
-                   liClass = 'row-reverse'
-                }
-                li.className = 'category-item '+liClass;
-                li.innerHTML = '<img src="../..'+element.imageUrl+'" alt="'+element.name+
-                '" width="250" height="175" class="category-image"><ul class="category-detail"><li><h3>'+element.name+
-                '</h3></li><li>'+element.description+'</li><li><button type="button" class="category-list__button">'+element.name+'</button></li></ul>';
-                ul.appendChild(li);
-                console.log(document.querySelector('.category-list__button'));
-                // document.querySelector('.category-list__button').addEventListener('click', _ => {
-                //     event.preventDefault();
-                //     console.log(event.target.innerText);
-                // });
             });
         })
         .catch(err => {
             console.log(err);
         });
+    }
+    getBannerItems(){
+        catService.getBanner().
+        then(res => {
+            const carousel = document.querySelector(".slideshow-container");
+            res.forEach(element => {
+                if(element.isActive) {
+                    const div = document.createElement('div');
+                    div.className = 'mySlides fade';
+                    const image = document.createElement('img');
+                    image.src = '../..'+element.bannerImageUrl;
+                    image.alt = element.bannerImageAlt;
+                    div.appendChild(image);
+                    carousel.appendChild(div);
+                }
+            });
+        })
+        .catch(err => console.log(err));
     }
 }
 
