@@ -57,11 +57,14 @@ class ProductController{
                 cardDiv.appendChild(cardHeading);
                 const cardContent = document.createElement('div');
                 cardContent.className = 'card-content';
-                const image = document.createElement('img');
-                image.src = '../..'+element.imageURL;
-                cardContent.appendChild(image);
+                const imageDiv = document.createElement('div');
+                imageDiv.className = 'card-image';
+                imageDiv.innerHTML = '<img src="../..'+element.imageURL+'" alt="'+element.name+'">';
+                // const image = document.createElement('img');
+                // image.src = '../..'+element.imageURL;
+                cardContent.appendChild(imageDiv);
                 const descDiv = document.createElement('div');
-                descDiv.className = 'product-desc';
+                descDiv.className = 'product-desc truncate';
                 descDiv.innerHTML = '<p>'+element.description+'</p>';
                 cardContent.appendChild(descDiv);
                 const priceDiv = document.createElement('div');

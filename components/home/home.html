@@ -12,41 +12,41 @@
         <header id="page-header" class="navbar main-header">
             <section class="header-container">
                 <nav class="header-container__item header-container__item--left LogoAndLinksMenu">
-                    <div class="LogoAndLinksMenu__LogoContainer">
-                        <a href="#" class="LogoAndLinksMenu__HomeLink">
+                    <div class="LogoAndLinksMenu__LogoContainer" role="header logo">
+                        <a href="#" class="LogoAndLinksMenu__HomeLink" tabindex="1">
                             <img src="../../static/images/logo_2x.png" alt="Sabka Bazaar" title="Sabka Bazaar" class="LogoAndLinksMenu__Logo">
                         </a>
                     </div>
                     <ul class="LinkContainer">
                         <li class="LinkContainer__LinkWrapper">
-                            <a href="#" class="LinkContainer__Link">
+                            <a href="#" class="LinkContainer__Link" tabindex="2">
                                 <span class="LinkContainer__Link__text">Home</span>
                             </a>
                         </li>
                         <li class="LinkContainer__LinkWrapper">
-                            <a href="#" class="LinkContainer__Link">
+                            <a href="#" class="LinkContainer__Link" tabindex="3">
                                 <span class="LinkContainer__Link__text">Products</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
                 <nav class="header-container__item header-container__item--right">
-                    <div class="header-menu__subgroup-container header-menu__subgroup-container--login-group">
+                    <div class="header-menu__subgroup-container header-menu__subgroup-container--login-group" role="header submenu">
                         <ul class="header-menu__subgroup">
                             <li class="header-menu__item">
-                                <a id="sign-in-btn" href="#" class="sigin-in-btn">
+                                <a id="sign-in-btn" href="#" class="sigin-in-btn" tabindex="4">
                                     <span class="signin-button__text">Sign in</span>
                                 </a>
                             </li>
                             <li class="header-menu__item">
-                                <a id="sign-up-btn" href="#" class="sigin-in-btn">
+                                <a id="sign-up-btn" href="#" class="sigin-in-btn" tabindex="5">
                                     <span class="signup-button__text" data-login-action="signup">Register</span>
                                 </a>
                             </li>
                         </ul>
-                        <div class="header-menu__subgroup-container header-menu__subgroup-container--cart">
-                            <img class="header-menu__subgroup-container cart" src="../../static/images/cart.svg">
-                            <span class="header-menu__subgroup-container item-total">0 items</span>
+                        <div class="header-menu__subgroup-container header-menu__subgroup-container--cart" role="header cart">
+                            <img alt="cart" class="header-menu__subgroup-container cart" src="../../static/images/cart.svg" tabindex="6">
+                            <span class="header-menu__subgroup-container item-total" tabindex="7">0 items</span>
                         </div>
                     </div>
                     
@@ -56,10 +56,10 @@
         <section class="page-content">
             <section>
                 <article class="carousel">
-                    <div class="slideshow-container">
+                    <div class="slideshow-container" role="image carousel" tabindex="8">
                         <!-- Next and previous buttons -->
-                        <a class="prev">&#10094;</a>
-                        <a class="next">&#10095;</a>
+                        <a class="prev" tabindex="9">&#10094;</a>
+                        <a class="next" tabindex="10">&#10095;</a>
                     </div>
                 </article>
                 <ul class="categories">
