@@ -59,9 +59,7 @@ class ProductController{
                 cardContent.className = 'card-content';
                 const imageDiv = document.createElement('div');
                 imageDiv.className = 'card-image';
-                imageDiv.innerHTML = '<img src="../..'+element.imageURL+'" alt="'+element.name+'">';
-                // const image = document.createElement('img');
-                // image.src = '../..'+element.imageURL;
+                imageDiv.innerHTML = '<img src="'+(element.imageURL).replace("/static/", "")+'" alt="'+element.name+'">';
                 cardContent.appendChild(imageDiv);
                 const descDiv = document.createElement('div');
                 descDiv.className = 'product-desc truncate';

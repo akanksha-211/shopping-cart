@@ -30,7 +30,7 @@ class CategoryController {
                     liClass = 'row-reverse'
                     }
                     li.className = 'category-item '+liClass;
-                    li.innerHTML = '<img src="../..'+element.imageUrl+'" alt="'+element.name+
+                    li.innerHTML = '<img src="'+(element.imageUrl).replace("/static/", "")+'" alt="'+element.name+
                     '" width="250" height="175" class="category-image" tabindex="'+(tab++)+'"><ul class="category-detail"><li tabindex="'+(tab++)+'"><h3>'+element.name+
                     '</h3></li><li tabindex="'+(tab++)+'">'+element.description+'</li><li><button type="button" class="category-list__button" tabindex="'+(tab++)+'">'+element.name+'</button></li></ul>';
                     ul.appendChild(li);
@@ -56,7 +56,7 @@ class CategoryController {
                     div.setAttribute("role", "image slide");
                     div.className = 'mySlides fade';
                     const image = document.createElement('img');
-                    image.src = '../..'+element.bannerImageUrl;
+                    image.src = (element.bannerImageUrl).replace("/static/", "");
                     image.alt = element.bannerImageAlt;
                     div.appendChild(image);
                     carousel.appendChild(div);

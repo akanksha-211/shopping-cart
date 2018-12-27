@@ -10,12 +10,23 @@ const catService = new CategoryService();
 const catController = new CategoryController(catService);
 
 
-// list all the categories
-Router.get('/home', (req, res) => {
-    // catController.render();
-    res.sendFile(path.join(__dirname+'/index.html'));
+
+Router.get('/', (req, res) => {
+    res.render('login/index.html');
 });
 
+Router.get('/register', (req, res) => {
+    res.render('register/index.html');
+});
+
+// list all the categories
+Router.get('/home', (req, res) => {
+    res.render('home/index.html');
+});
+
+Router.get('/products', (req, res) => {
+    res.render('products/index.html');
+});
 
 
 module.exports = Router;

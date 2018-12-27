@@ -44,7 +44,7 @@ class Register {
         '<input type="password" pattern="" class="form-control cnfpassword" id="cnfpassword" name="cnfpassword" tabindex="19">';
         form.appendChild(form_group_cnfpassword);
         const form_group_button = document.createElement('div');
-        setAttribute("role", "button form group");
+        form_group_button.setAttribute("role", "button form group");
         form_group_button.className = 'form-group';
         form_group_button.innerHTML = '<button type="button" class="form-control signup" id="signup" name="signup" tabindex="20">Signup</button>';
         form.appendChild(form_group_button);
