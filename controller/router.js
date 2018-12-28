@@ -11,7 +11,7 @@ const catController = new CategoryController(catService);
 
 
 
-Router.get('/', (req, res) => {
+Router.get('/login', (req, res) => {
     res.render('login/index.html');
 });
 
@@ -20,12 +20,12 @@ Router.get('/register', (req, res) => {
 });
 
 // list all the categories
-Router.get('/home', (req, res) => {
+Router.get('/', (req, res) => {
     res.render('home/index.html');
 });
 
 Router.get('/products', (req, res) => {
-    res.render('products/index.html');
+    res.render('products/index.html', { category: req.query.id });
 });
 
 

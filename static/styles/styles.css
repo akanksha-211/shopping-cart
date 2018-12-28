@@ -227,7 +227,7 @@ ul {
 }
 
 .category-item .category-image {
-  width: 42%;
+  width: 30%;
 }
 
 .category-item.row-reverse {
@@ -275,6 +275,10 @@ ul {
   padding: 10px 20px;
 }
 
+.nav-list-item .category-link {
+  color: #6e6d6d;
+}
+
 .page-content__productsList {
   display: flex;
   flex-wrap: wrap;
@@ -289,6 +293,10 @@ ul {
   text-align: center;
   font-family: arial;
   border-bottom: 1px dotted black;
+}
+
+.card-heading {
+  min-height: 5.3em;
 }
 
 .price {
@@ -369,6 +377,10 @@ ul {
     display: none;
   }
 
+  .product-price {
+    display: none;
+  }
+
   .card button.small {
     display: block;
   }
@@ -378,7 +390,7 @@ ul {
   }
 
   .page-content__category {
-    flex: 3;
+    flex: 0;
   }
 
   .category-dropdown.small {

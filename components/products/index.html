@@ -13,18 +13,18 @@
             <section class="header-container">
                 <nav class="header-container__item header-container__item--left LogoAndLinksMenu">
                     <div class="LogoAndLinksMenu__LogoContainer">
-                        <a href="#" class="LogoAndLinksMenu__HomeLink">
+                        <a href="/" class="LogoAndLinksMenu__HomeLink">
                             <img src="images/logo_2x.png" alt="Sabka Bazaar" title="Sabka Bazaar" class="LogoAndLinksMenu__Logo">
                         </a>
                     </div>
                     <ul class="LinkContainer">
                         <li class="LinkContainer__LinkWrapper">
-                            <a href="#" class="LinkContainer__Link">
+                            <a href="/" class="LinkContainer__Link">
                                 <span class="LinkContainer__Link__text">Home</span>
                             </a>
                         </li>
                         <li class="LinkContainer__LinkWrapper">
-                            <a href="#" class="LinkContainer__Link">
+                            <a href="/products" class="LinkContainer__Link">
                                 <span class="LinkContainer__Link__text">Products</span>
                             </a>
                         </li>
@@ -34,12 +34,12 @@
                     <div class="header-menu__subgroup-container header-menu__subgroup-container--login-group">
                         <ul class="header-menu__subgroup">
                             <li class="header-menu__item">
-                                <a id="sign-in-btn" href="#" class="sigin-in-btn">
+                                <a id="sign-in-btn" href="/login" class="sigin-in-btn">
                                     <span class="signin-button__text">Sign in</span>
                                 </a>
                             </li>
                             <li class="header-menu__item">
-                                <a id="sign-up-btn" href="#" class="sigin-in-btn">
+                                <a id="sign-up-btn" href="/register" class="sigin-in-btn">
                                     <span class="signup-button__text" data-login-action="signup">Register</span>
                                 </a>
                             </li>
@@ -54,6 +54,7 @@
             </section>
         </header>
         <section class="page-content__products">
+            <input type="hidden" value="{{category}}" id="category">
             <aside class="page-content__category">
 
             </aside>

@@ -32,10 +32,17 @@ class CategoryController {
                     li.className = 'category-item '+liClass;
                     li.innerHTML = '<img src="'+(element.imageUrl).replace("/static/", "")+'" alt="'+element.name+
                     '" width="250" height="175" class="category-image" tabindex="'+(tab++)+'"><ul class="category-detail"><li tabindex="'+(tab++)+'"><h3>'+element.name+
-                    '</h3></li><li tabindex="'+(tab++)+'">'+element.description+'</li><li><button type="button" class="category-list__button" tabindex="'+(tab++)+'">'+element.name+'</button></li></ul>';
+                    '</h3></li><li tabindex="'+(tab++)+'">'+element.description+'</li><li><button type="button" id="category-'+counter+'" class="category-list__button" data-attr="'+element.id+'" tabindex="'+(tab++)+'">'+element.name+'</button></li></ul>';
                     ul.appendChild(li);
                     counter++;
                 }
+            });
+            const category_button = document.getElementsByClassName("category-list__button");
+            Array.prototype.forEach.call(category_button, (category_button) => {
+                category_button.addEventListener('click', function(){
+                    console.log(category_button.dataset.attr);
+                    window.location = '/products?id='+category_button.dataset.attr;
+                });
             });
             document.querySelector(".page-footer span").tabIndex = tab;
         })

@@ -9,7 +9,7 @@ class ProductController{
     constructor(prodService) {
         this.prodService = prodService;
     }
-    listAll(){
+    listAll(categoryId){
         catService.findAll()
         .then(response => {
             const sideNav = document.querySelector('.page-content__category');
@@ -35,7 +35,7 @@ class ProductController{
                     listItem.dataset.attr = element.id;
                     const categoryLink = document.createElement('a');
                     categoryLink.className = 'category-link';
-                    categoryLink.href = '#';
+                    categoryLink.href = '?id='+element.id;
                     categoryLink.innerText = element.name;
                     listItem.appendChild(categoryLink);
                     sideNavList.appendChild(listItem);
@@ -49,37 +49,49 @@ class ProductController{
         prodService.listAllProducts()
         .then(res => {
             res.forEach(element => {
-                const articleProduct = document.querySelector('.page-content__productsList');
-                const cardDiv = document.createElement('div');
-                cardDiv.className = 'card';
-                const cardHeading = document.createElement('h3');
-                cardHeading.innerText = element.name;
-                cardDiv.appendChild(cardHeading);
-                const cardContent = document.createElement('div');
-                cardContent.className = 'card-content';
-                const imageDiv = document.createElement('div');
-                imageDiv.className = 'card-image';
-                imageDiv.innerHTML = '<img src="'+(element.imageURL).replace("/static/", "")+'" alt="'+element.name+'">';
-                cardContent.appendChild(imageDiv);
-                const descDiv = document.createElement('div');
-                descDiv.className = 'product-desc truncate';
-                descDiv.innerHTML = '<p>'+element.description+'</p>';
-                cardContent.appendChild(descDiv);
-                const priceDiv = document.createElement('div');
-                priceDiv.className = 'product-price';
-                priceDiv.innerHTML = '<p>MRP Rs.'+element.price+'</p>';
-                cardContent.appendChild(priceDiv);
-                const buttonDiv = document.createElement('div');
-                buttonDiv.className = 'card-button';
-                buttonDiv.innerHTML = '<button type="button" class="buy-product large">Buy Now</button>'+
-                '<button type="button" class="buy-product small">Buy Now @ Rs.'+element.price+'</button>';
-                cardContent.appendChild(buttonDiv);
-                cardDiv.appendChild(cardContent);
-                articleProduct.appendChild(cardDiv);
+                if(categoryId && categoryId!= ""){
+                    if(categoryId == element.category){
+                        this.printCard(element);
+                    }
+                }
+                else {
+                    this.printCard(element);
+                }
             });
         })
         .catch(err => console.log(err));
 
+    }
+
+    printCard(element) {
+        const articleProduct = document.querySelector('.page-content__productsList');
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'card';
+        const cardHeading = document.createElement('div');
+        cardHeading.className = 'card-heading';
+        cardHeading.innerHTML = '<h3>'+element.name+'</h3>';
+        cardDiv.appendChild(cardHeading);
+        const cardContent = document.createElement('div');
+        cardContent.className = 'card-content';
+        const imageDiv = document.createElement('div');
+        imageDiv.className = 'card-image';
+        imageDiv.innerHTML = '<img src="'+(element.imageURL).replace("/static/", "")+'" alt="'+element.name+'">';
+        cardContent.appendChild(imageDiv);
+        const descDiv = document.createElement('div');
+        descDiv.className = 'product-desc truncate';
+        descDiv.innerHTML = '<p>'+element.description+'</p>';
+        cardContent.appendChild(descDiv);
+        const priceDiv = document.createElement('div');
+        priceDiv.className = 'product-price';
+        priceDiv.innerHTML = '<p>MRP Rs.'+element.price+'</p>';
+        cardContent.appendChild(priceDiv);
+        const buttonDiv = document.createElement('div');
+        buttonDiv.className = 'card-button';
+        buttonDiv.innerHTML = '<button type="button" class="buy-product large">Buy Now</button>'+
+        '<button type="button" class="buy-product small">Buy Now @ Rs.'+element.price+'</button>';
+        cardContent.appendChild(buttonDiv);
+        cardDiv.appendChild(cardContent);
+        articleProduct.appendChild(cardDiv);
     }
 }
 

@@ -12,13 +12,18 @@ setTimeout(() => {
 function showSlidesAuto() {
     var i;
     var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
     for (i = 0; i < slides.length; i++) {
       slides[i].style.display = "none"; 
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
     }
     slideIndex++;
     if (slideIndex > slides.length) {slideIndex = 1} 
     slides[slideIndex-1].style.display = "block"; 
-    setTimeout(showSlidesAuto, 2000); // Change image every 2 seconds
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlidesAuto, 1000); // Change image every 2 seconds
   }
 // Next/previous controls
 document.querySelector('.prev').addEventListener('click', () => {

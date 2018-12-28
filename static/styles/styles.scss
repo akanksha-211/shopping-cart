@@ -204,7 +204,7 @@ ul {
     box-shadow: 0 10px 8px -6px #777;
 }
 .category-item .category-image {
-    width: 42%;
+    width: 30%;
 }
 .category-item.row-reverse {
     flex-direction: row-reverse;
@@ -243,6 +243,9 @@ ul {
     border-bottom: 1px dotted;
     padding: 10px 20px;
 }
+.nav-list-item .category-link {
+    color: $grey1;
+}
 .page-content__productsList {
     display: flex;
     flex-wrap: wrap;
@@ -257,7 +260,9 @@ ul {
     font-family: arial;
     border-bottom: 1px dotted black;
 }
-
+.card-heading {
+    min-height: 5.3em;
+}
 .price {
 color: grey;
 font-size: 22px;
@@ -329,6 +334,9 @@ display: none;
     .LinkContainer, .header-menu__subgroup {
         display: none;
     }
+    .product-price {
+        display: none;
+    }
     .card button.small {
         display: block;
     }
@@ -336,7 +344,7 @@ display: none;
         display: none;
     }
     .page-content__category {
-        flex: 3;
+        flex: 0;
     }
     .category-dropdown.small{
         display: block;
