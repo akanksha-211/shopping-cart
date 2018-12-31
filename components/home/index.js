@@ -4,6 +4,8 @@ const CategoryController = require('./CatController');
 const catService = new CategoryService();
 const catController = new CategoryController(catService);
 
+catController.render();
+
 var slideIndex = 0;
 setTimeout(() => {
     showSlidesAuto();
@@ -59,4 +61,6 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 
-catController.render();
+(document.querySelector(".header-menu__subgroup-container.cart")).addEventListener('click', _ => {
+    document.getElementById("overlay").style.display = "block";
+});

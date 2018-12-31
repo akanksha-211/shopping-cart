@@ -16,32 +16,37 @@ class Register {
         const form_group_firstName = document.createElement('div');
         form_group_firstName.setAttribute("role", "firstname form group");
         form_group_firstName.className = 'form-group';
-        form_group_firstName.innerHTML = '<label for="firstName" class="login--label"  tabindex="10">First Name</label>'+
-        '<input type="text" pattern="[a-zA-Z]$" class="form-control firstName" id="firstName" name="firstName" tabindex="11">';
+        form_group_firstName.innerHTML = '<label for="firstName" class="login--label"  tabindex="10" style="visibility: hidden;">First Name</label>'+
+        '<input type="text" pattern="[a-zA-Z]$" class="form-control firstName" id="firstName" name="firstName" tabindex="11" placeholder="First Name" required>'+
+        '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_firstName);
         const form_group_lastName = document.createElement('div');
         form_group_lastName.setAttribute("role", "lastname form group");
         form_group_lastName.className = 'form-group';
-        form_group_lastName.innerHTML = '<label for="lastName" class="login--label" tabindex="12">Last Name</label>'+
-        '<input type="text" pattern="[a-zA-Z]$" class="form-control lastName" id="lastName" name="lastName" tabindex="13">';
+        form_group_lastName.innerHTML = '<label for="lastName" class="login--label" tabindex="12" style="visibility: hidden;">Last Name</label>'+
+        '<input type="text" pattern="[a-zA-Z]$" class="form-control lastName" id="lastName" name="lastName" tabindex="13" placeholder="Last Name" required>'+
+        '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_lastName);
         const form_group_email = document.createElement('div');
         form_group_email.setAttribute("role", "email form group");
         form_group_email.className = 'form-group';
-        form_group_email.innerHTML = '<label for="email" class="login--label" tabindex="14">Email</label>'+
-        '<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control email" id="email" name="email" tabindex="15">';
+        form_group_email.innerHTML = '<label for="email" class="login--label" tabindex="14" style="visibility: hidden;">Email</label>'+
+        '<input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" class="form-control email" id="email" name="email" tabindex="15" placeholder="Email" required>'+
+        '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_email);
         const form_group_password = document.createElement('div');
         form_group_password.setAttribute("role", "password form group");
         form_group_password.className = 'form-group';
-        form_group_password.innerHTML = '<label for="password" class="login--label" tabindex="16">Password</label>'+
-        '<input type="password" pattern="" class="form-control password" id="password" name="password" tabindex="17">';
+        form_group_password.innerHTML = '<label for="password" class="login--label" tabindex="16" style="visibility: hidden;">Password</label>'+
+        '<input type="password" class="form-control password" id="password" name="password" tabindex="17" placeholder="Password" required>'+
+        '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_password);
         const form_group_cnfpassword = document.createElement('div');
         form_group_cnfpassword.setAttribute("role", "confirm password form group");
         form_group_cnfpassword.className = 'form-group';
-        form_group_cnfpassword.innerHTML = '<label for="cnfpassword" class="login--label" tabindex="18">Confirm Password</label>'+
-        '<input type="password" pattern="" class="form-control cnfpassword" id="cnfpassword" name="cnfpassword" tabindex="19">';
+        form_group_cnfpassword.innerHTML = '<label for="cnfpassword" class="login--label" tabindex="18" style="visibility: hidden;">Confirm Password</label>'+
+        '<input type="password" class="form-control cnfpassword" id="cnfpassword" name="cnfpassword" tabindex="19" placeholder="Confirm Password" required>'+
+        '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_cnfpassword);
         const form_group_button = document.createElement('div');
         form_group_button.setAttribute("role", "button form group");

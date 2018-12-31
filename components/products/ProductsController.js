@@ -5,6 +5,10 @@ const CategoryService = require('../home/CatService');
 
 const catService = new CategoryService();
 
+const cart = require('../cart/Cart');
+
+const Cart = new cart();
+
 class ProductController{
     constructor(prodService) {
         this.prodService = prodService;
@@ -58,6 +62,22 @@ class ProductController{
                     this.printCard(element);
                 }
             });
+            const buy_now = document.getElementsByClassName("buy-product");
+            Array.prototype.forEach.call(buy_now, buy_now => {
+                buy_now.parentElement.addEventListener('click', _ => {
+                    event.stopImmediatePropagation();
+                    const product_id = ((buy_now.parentElement).querySelector(".product-data").value);
+                    const product_name = ((buy_now.parentElement).querySelector(".product-data").dataset.attr);
+                    const product_price = ((buy_now.parentElement).querySelector(".product-data").dataset.price);
+                    console.log(product_id,product_name, product_price);
+                    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+                    cart.push(JSON.stringify({"product_id": product_id, "product_name": product_name, "price": product_price}));
+                    sessionStorage.setItem("cart", JSON.stringify(cart));
+                    console.log('length-------------'+JSON.parse(sessionStorage.getItem("cart")).length);
+                    document.getElementById("overlay").style.display = "block";
+                    Cart.render();
+                });
+            });
         })
         .catch(err => console.log(err));
 
@@ -87,7 +107,7 @@ class ProductController{
         cardContent.appendChild(priceDiv);
         const buttonDiv = document.createElement('div');
         buttonDiv.className = 'card-button';
-        buttonDiv.innerHTML = '<button type="button" class="buy-product large">Buy Now</button>'+
+        buttonDiv.innerHTML = '<input type="hidden" class="product-data" data-price = "'+element.price+'" value="'+element.id+'" data-attr="'+element.name+'"/><button type="button" class="buy-product large">Buy Now</button>'+
         '<button type="button" class="buy-product small">Buy Now @ Rs.'+element.price+'</button>';
         cardContent.appendChild(buttonDiv);
         cardDiv.appendChild(cardContent);
