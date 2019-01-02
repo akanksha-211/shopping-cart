@@ -14,12 +14,12 @@ class Product {
 
 class ProductService {
     constructor() {
-        this.serviceUrl = 'http://localhost:5000/products';
+        this.serviceUrl = 'http://localhost:5000';
     }
     // load the data using javascript fecth service
     async listAllProducts() {
         try {
-            const response = await fetch(this.serviceUrl);
+            const response = await fetch(`${this.serviceUrl}/products`);
             if (response.status !== 200 && response.status !== 201) {
                 throw new Error(response.statusText);
             }
@@ -36,6 +36,30 @@ class ProductService {
                 throw new Error(response.statusText);
             }
             return await response.json();
+        }
+        catch (err) {
+            throw (err);
+        }
+    }
+    async addToCart(id) {
+        try {
+            let response = '';
+            $.ajax({
+                url: `${this.serviceUrl}/addToCart`,
+                type: "POST",
+                data: {
+                    "id": id
+                },
+                success: function(data, textStatus, res) {
+                    response = res.responseText;
+                    console.log(response)
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    throw new Error('Error occurred!');
+                }
+            });
+            console.log(response)
+            return await response.json() ;
         }
         catch (err) {
             throw (err);
