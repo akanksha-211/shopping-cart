@@ -13,6 +13,7 @@ prodController.listAll(category.value);
 
 (document.querySelector(".header-menu__subgroup-container.cart")).addEventListener('click', _ => {
     document.getElementById("overlay").style.display = "block";
+    document.body.style.overflow = 'hidden';
     Cart.render();
 });
 let cartStore = JSON.parse(sessionStorage.getItem("cart")) || [];

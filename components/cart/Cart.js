@@ -28,18 +28,19 @@ class Cart {
         if(cart.length) {
             document.querySelector(".header-menu__subgroup-container.item-total").innerText = (cart.length)+ ' items';
             const overlayContent = document.querySelector(".overlay-content");
-            const prevInstance = overlayContent.getElementsByClassName("cart-instance");
-            // console.log(prevInstance);
-            Array.prototype.forEach.call(prevInstance, prevInstance => {
-                // console.log('instances');
-                // console.log(prevInstance);
-                prevInstance.remove();
-            });
+            overlayContent.innerHTML = '';
+            // const prevInstance = overlayContent.getElementsByClassName("cart-instance");
+            // // console.log(prevInstance);
+            // Array.prototype.forEach.call(prevInstance, prevInstance => {
+            //     // console.log('instances');
+            //     // console.log(prevInstance);
+            //     prevInstance.remove();
+            // });
             overlayContent.classList.remove('empty');
-            document.querySelector(".content").remove();
+            // document.querySelector(".content").remove();
             const cartContainer = document.createElement('div');
             cartContainer.className = "content";
-            document.querySelector(".cart-empty").style.display = 'none';
+            // document.querySelector(".cart-empty").style.display = 'none';
             let total = 0;
             prodService.listAllProducts()
             .then(res => {
@@ -147,6 +148,7 @@ class Cart {
                 if(document.querySelector(".proceed")) {
                     document.querySelector(".proceed").addEventListener('click', _ => {
                         document.getElementById("overlay").style.display = "none";
+                        document.body.style.overflow = 'auto';
                     });
                 }
             })
@@ -157,9 +159,11 @@ class Cart {
         }
         document.querySelector(".close").addEventListener('click', _ => {
             document.getElementById("overlay").style.display = "none";
+            document.body.style.overflow = 'auto';
         });
         document.querySelector(".checkout.start").addEventListener('click', _ => {
             document.getElementById("overlay").style.display = "none";
+            document.body.style.overflow = 'auto';
         });
         
     }

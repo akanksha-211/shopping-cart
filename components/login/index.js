@@ -11,7 +11,7 @@ function init(){
     });
     document.querySelector(".form-control.email").addEventListener('blur', _ => {
         if(!event.target.value || event.target.value == "") {
-            document.querySelector(".login--label.email").style.visibility = 'hidden';
+            document.querySelector(".login--label.email").style.visibility = 'hidden';        
         }
     });
     document.querySelector(".form-control.password").addEventListener('focus', _ => {
@@ -20,6 +20,7 @@ function init(){
     document.querySelector(".form-control.password").addEventListener('blur', _ => {
         if(!event.target.value || event.target.value == "") {
             document.querySelector(".login--label.password").style.visibility = 'hidden';
+            document.querySelector(".form-control.login").click();
         }
     });
     document.querySelector(".form-control.login").addEventListener('click', _ => {

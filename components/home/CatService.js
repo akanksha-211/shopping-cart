@@ -25,7 +25,7 @@ class CategoryService {
             return await response.json();
         }
         catch (err) {
-            throw (err);
+            throw new Error('Fetch failed');
         }
     }
     async getBanner() {

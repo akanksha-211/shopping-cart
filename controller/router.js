@@ -28,5 +28,8 @@ Router.get('/products', (req, res) => {
     res.render('products/index.html', { category: req.query.id });
 });
 
+Router.get('/error', (req, res) => {
+    res.render('error/index.html')
+});
 
 module.exports = Router;

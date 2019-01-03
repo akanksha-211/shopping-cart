@@ -1,4 +1,45 @@
-@import url("https://fonts.googleapis.com/css?family=Dosis:400,600,700");
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Dosis Regular"), local("Dosis-Regular"), url(https://fonts.gstatic.com/s/dosis/v7/HhyaU5sn9vOmLzlmC_W6EQ.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Dosis Regular"), local("Dosis-Regular"), url(https://fonts.gstatic.com/s/dosis/v7/HhyaU5sn9vOmLzloC_U.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Dosis SemiBold"), local("Dosis-SemiBold"), url(https://fonts.gstatic.com/s/dosis/v7/HhyXU5sn9vOmLzG3L-CLMItyTA.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 600;
+  src: local("Dosis SemiBold"), local("Dosis-SemiBold"), url(https://fonts.gstatic.com/s/dosis/v7/HhyXU5sn9vOmLzG3L-CFMIs.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Dosis Bold"), local("Dosis-Bold"), url(https://fonts.gstatic.com/s/dosis/v7/HhyXU5sn9vOmLzHTLuCLMItyTA.woff2) format("woff2");
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Dosis";
+  font-style: normal;
+  font-weight: 700;
+  src: local("Dosis Bold"), local("Dosis-Bold"), url(https://fonts.gstatic.com/s/dosis/v7/HhyXU5sn9vOmLzHTLuCFMIs.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 body {
   width: 90%;
   margin: 0 auto;
@@ -103,12 +144,84 @@ ul {
 }
 
 /* Header ends */
-/* Main Content */
+@media (max-width: 767px) {
+  .LinkContainer, .header-menu__subgroup {
+    display: none;
+  }
+}
 .main.page-content {
   display: flex;
   width: 70%;
   margin: 0 auto;
   flex-wrap: wrap;
+}
+
+.page__content--aside, .page__content--article {
+  flex: 1;
+  flex-wrap: wrap;
+  padding: 2em;
+}
+
+.form-group {
+  margin-block-start: 1em;
+}
+
+.form-group .form-control {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid;
+  height: 35px;
+}
+
+.form-group.error label {
+  color: red;
+}
+
+.form-group.error .form-control {
+  border-bottom: 1px solid red !important;
+}
+
+.login--label {
+  display: block;
+}
+
+.form-control.login, .form-control.signup {
+  border: none;
+  background: crimson;
+  height: 50px;
+  color: #ffffff;
+}
+
+.category-item {
+  display: flex;
+  margin: 1em auto;
+  box-shadow: 0 10px 8px -6px #777;
+}
+
+.category-item .category-image {
+  width: 30%;
+}
+
+.category-item.row-reverse {
+  flex-direction: row-reverse;
+}
+
+.category-item:last-child {
+  box-shadow: none;
+}
+
+.category-detail {
+  text-align: center;
+  flex: 4;
+}
+
+.category-list__button {
+  margin: 0.5em;
+  height: 50px;
+  min-width: 200px;
+  background: crimson;
+  color: white;
+  border: none;
 }
 
 /* Carousel */
@@ -192,74 +305,6 @@ ul {
 }
 
 /* Carousel ends */
-.page__content--aside, .page__content--article {
-  flex: 1;
-  flex-wrap: wrap;
-  padding: 2em;
-}
-
-.form-group {
-  margin-block-start: 1em;
-}
-
-.form-group .form-control {
-  width: 100%;
-  border: none;
-  border-bottom: 1px solid;
-  height: 35px;
-}
-
-.form-group.error label {
-  color: red;
-}
-
-.form-group.error .form-control {
-  border-bottom: 1px solid red !important;
-}
-
-.login--label {
-  display: block;
-}
-
-.form-control.login, .form-control.signup {
-  border: none;
-  background: crimson;
-  height: 50px;
-  color: #ffffff;
-}
-
-.category-item {
-  display: flex;
-  margin: 1em auto;
-  box-shadow: 0 10px 8px -6px #777;
-}
-
-.category-item .category-image {
-  width: 30%;
-}
-
-.category-item.row-reverse {
-  flex-direction: row-reverse;
-}
-
-.category-item:last-child {
-  box-shadow: none;
-}
-
-.category-detail {
-  text-align: center;
-  flex: 4;
-}
-
-.category-list__button {
-  margin: 0.5em;
-  height: 50px;
-  min-width: 200px;
-  background: crimson;
-  color: white;
-  border: none;
-}
-
 .page-content__products {
   display: flex;
   flex-wrap: wrap;
@@ -372,6 +417,84 @@ ul {
 }
 
 /* Card ends */
+@media (max-width: 767px) {
+  .product-price {
+    display: none;
+  }
+
+  .card button.small {
+    display: block;
+  }
+
+  .card button.large {
+    display: none;
+  }
+
+  .page-content__category {
+    flex: 0;
+  }
+
+  .category-dropdown.small {
+    display: block;
+    background: crimson;
+    color: white;
+    padding: 1em;
+  }
+
+  .category-dropdown.small a {
+    float: right;
+    color: white;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .page-content__category, .page-content__productsList {
+    flex: 100%;
+  }
+
+  .fas.fa-caret-down {
+    float: right;
+  }
+
+  .card {
+    max-width: 100%;
+  }
+
+  .card-heading {
+    text-align: left;
+  }
+
+  .card-image, .product-desc.truncate {
+    flex: 50%;
+  }
+
+  .product-price, .buy-product.large {
+    display: none;
+  }
+
+  .buy-product.small {
+    display: block;
+  }
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .card-heading {
+    text-align: left;
+  }
+
+  .card-image, .product-desc.truncate {
+    flex: 50%;
+  }
+
+  .product-price, .buy-product.large {
+    display: none !important;
+  }
+
+  .buy-product.small {
+    display: block !important;
+  }
+}
 /* Overlay */
 #overlay {
   position: fixed;
@@ -478,6 +601,11 @@ ul {
   font-size: 0.75em;
   margin: 10px;
   padding: 0.5em;
+  display: flex;
+}
+
+.cart__lowest-price img, .cart__lowest-price span {
+  align-self: center;
 }
 
 .cart__lowest-price span {
@@ -492,7 +620,7 @@ ul {
 
 .promo-message {
   color: #000000;
-  font-size: 0.75em;
+  font-size: 0.5em;
   width: 90%;
   margin: 10px auto;
 }
@@ -520,7 +648,60 @@ ul {
 }
 
 /* overlay ends */
-/* Main content ends */
+@media (max-width: 767px) {
+  #overlay {
+    background: transparent;
+  }
+
+  #overlayContainer {
+    width: 100%;
+    height: 78vh;
+    position: relative;
+    top: 44%;
+  }
+
+  .overlay-header {
+    background: transparent;
+    color: transparent;
+  }
+
+  .overlay-content {
+    height: 68vh;
+  }
+
+  .overlay-content.empty {
+    height: 75vh;
+  }
+
+  .overlay-footer {
+    height: 20vh;
+  }
+}
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  #overlay {
+    background: transparent;
+  }
+
+  #overlayContainer {
+    width: 100%;
+    height: 75vh;
+    position: relative;
+    top: 40%;
+  }
+
+  .overlay-header {
+    background: transparent;
+    color: transparent;
+  }
+
+  .overlay-content, .overlay-content.empty {
+    height: 75vh;
+  }
+
+  .overlay-footer {
+    height: 20vh;
+  }
+}
 /* Footer */
 .page-footer {
   background: #c8c8c8;
@@ -528,47 +709,5 @@ ul {
 }
 
 /* Footer ends */
-@media (max-width: 568px) {
-  .LinkContainer, .header-menu__subgroup {
-    display: none;
-  }
-
-  .product-price {
-    display: none;
-  }
-
-  .card button.small {
-    display: block;
-  }
-
-  .card button.large {
-    display: none;
-  }
-
-  .page-content__category {
-    flex: 0;
-  }
-
-  .category-dropdown.small {
-    display: block;
-    background: crimson;
-    color: white;
-    padding: 1em;
-  }
-
-  .category-dropdown.small a {
-    float: right;
-    color: white;
-  }
-
-  .nav-list {
-    display: none;
-  }
-
-  #overlayContainer {
-    width: 100%;
-    height: 66%;
-  }
-}
 
 /*# sourceMappingURL=styles.css.map */

@@ -48,6 +48,7 @@ class CategoryController {
         })
         .catch(err => {
             console.log(err);
+            window.href = '/error';
         });
     }
     getBannerItems(){
@@ -74,7 +75,10 @@ class CategoryController {
             });
             carouselContainer.appendChild(dotContainer);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            console.log(err)
+            window.location = '/error';
+        });
     }
 }
 

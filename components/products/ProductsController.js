@@ -14,6 +14,7 @@ class ProductController{
         this.prodService = prodService;
     }
     listAll(categoryId){
+        const self = this;
         catService.findAll()
         .then(response => {
             const sideNav = document.querySelector('.page-content__category');
@@ -21,13 +22,7 @@ class ProductController{
             categoryList.className = 'category-list';
             const categoryDropDown = document.createElement('div');
             categoryDropDown.className = 'category-dropdown small';
-            const selectedItem = document.createElement('span');
-            selectedItem.innerText = response[0].name;
-            categoryDropDown.appendChild(selectedItem);
-            const categoryDropDownToggle = document.createElement('a');
-            categoryDropDownToggle.href = '#';
-            categoryDropDownToggle.innerText = '˅';
-            categoryDropDown.appendChild(categoryDropDownToggle);
+            categoryDropDown.innerHTML = '<span>'+response[0].name+'</span><a class="toggle"><i class="fas fa-caret-down"></i></a>';
             categoryList.appendChild(categoryDropDown);
             sideNav.appendChild(categoryList);
             const sideNavList = document.createElement('ul');
@@ -39,7 +34,11 @@ class ProductController{
                     listItem.dataset.attr = element.id;
                     const categoryLink = document.createElement('a');
                     categoryLink.className = 'category-link';
-                    categoryLink.href = '?id='+element.id;
+                    categoryLink.onclick = function(){
+                        document.querySelector(".category-dropdown.small span").innerText = element.name;
+                        document.querySelector(".nav-list").style.display = 'none';
+                        self.getProducts(element.id);
+                    }
                     categoryLink.innerText = element.name;
                     listItem.appendChild(categoryLink);
                     sideNavList.appendChild(listItem);
@@ -49,7 +48,22 @@ class ProductController{
             sideNav.appendChild(categoryList);
         })
         .catch(error => console.log(error) );
+        this.getProducts(categoryId);
+        
+        setTimeout(() => {
+            document.querySelector(".toggle").addEventListener('click', _ => {
+                if(document.querySelector(".nav-list").style.display == "" || document.querySelector(".nav-list").style.display == "none") {
+                    document.querySelector(".nav-list").style.display = 'block';
+                }
+                else {
+                    document.querySelector(".nav-list").style.display = 'none';
+                }
+            }) 
+        }, 500);
+    }
 
+    getProducts(categoryId) {
+        document.querySelector(".page-content__productsList").innerHTML = '';
         prodService.listAllProducts()
         .then(res => {
             res.forEach(element => {
@@ -94,14 +108,13 @@ class ProductController{
                     sessionStorage.setItem("cart", JSON.stringify(cart));
                     // console.log('length-------------'+JSON.parse(sessionStorage.getItem("cart")));
                     document.getElementById("overlay").style.display = "block";
+                    document.body.style.overflow = 'hidden';
                     Cart.render();
                 });
             });
         })
         .catch(err => console.log(err));
-
     }
-
     printCard(element) {
         const articleProduct = document.querySelector('.page-content__productsList');
         const cardDiv = document.createElement('div');
