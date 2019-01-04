@@ -1,8 +1,8 @@
-const CatService = require('./CatService');
+import CatService from './CatService';
 
 const catService = new CatService();
 
-class CategoryController {
+export default class CategoryController {
     // use dependency injection
     constructor(catService) {
         this.catService = catService;
@@ -40,7 +40,6 @@ class CategoryController {
             const category_button = document.getElementsByClassName("category-list__button");
             Array.prototype.forEach.call(category_button, (category_button) => {
                 category_button.addEventListener('click', function(){
-                    console.log(category_button.dataset.attr);
                     window.location = '/products?id='+category_button.dataset.attr;
                 });
             });
@@ -81,5 +80,3 @@ class CategoryController {
         });
     }
 }
-
-module.exports = CategoryController;

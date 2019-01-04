@@ -1,4 +1,4 @@
-class Login {
+export default class Login {
     constructor() {
     }
     render() {
@@ -26,7 +26,7 @@ class Login {
         form_group_password.setAttribute("role", "password form group");
         form_group_password.className = 'form-group';
         form_group_password.innerHTML = '<label for="password" class="login--label password" tabindex="12" style="visibility:hidden">Password</label>'+
-        '<input type="password" class="form-control password" id="password" pattern="(?=.*\d)(?=.*[a-zA-Z]).{6,}" name="password" tabindex="13" placeholder="Password" required>'+
+        '<input type="password" class="form-control password" id="password" name="password" tabindex="13" placeholder="Password" required>'+
         '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_password);
         const form_group_button = document.createElement('div');
@@ -38,4 +38,4 @@ class Login {
     }
 }
 
-module.exports = Login;
+// module.exports = Login;

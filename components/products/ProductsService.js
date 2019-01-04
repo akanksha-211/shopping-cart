@@ -12,7 +12,7 @@ class Product {
     }
 }
 
-class ProductService {
+export default class ProductService {
     constructor() {
         this.serviceUrl = 'http://localhost:5000';
     }
@@ -66,4 +66,3 @@ class ProductService {
         }
     }
 }
-module.exports = ProductService;

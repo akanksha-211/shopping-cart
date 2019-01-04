@@ -1,4 +1,4 @@
-const cart = require('./Cart');
+import cart from './Cart';
 
 const Cart = new cart();
 

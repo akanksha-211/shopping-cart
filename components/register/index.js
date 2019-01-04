@@ -1,4 +1,4 @@
-const Register = require('./Register');
+import Register from './Register';
 
 const reg = new Register();
 
@@ -66,7 +66,7 @@ function init() {
             }
         }
         else {
-            if(document.querySelector(".password").value == document.querySelector(".cnfpassword").value) {
+            if(document.querySelector(".cnfpassword").value && (document.querySelector(".password").value == document.querySelector(".cnfpassword").value)) {
                 document.querySelector(".cnfpassword").parentElement.classList.remove('error');
             }
             else {

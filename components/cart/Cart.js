@@ -1,9 +1,7 @@
-const ProductService = require('../products/ProductsService');
+import ProductService from '../products/ProductsService';
 const prodService = new ProductService();
 
-
-
-class Cart {
+export default class Cart {
     constructor(){
 
     }
@@ -17,7 +15,7 @@ class Cart {
             overLayContainer.appendChild(overlayHeader);
             const overlayContent = document.createElement('div');
             overlayContent.className = 'overlay-content empty';
-            overlayContent.innerHTML = '<div class="cart-empty"><p>No items in your cart</p><p>Your favourite items are just a click away</p></div><div class="content"></div>'
+            overlayContent.innerHTML = '<div class="cart-empty"><p>No items in your cart</p><p>Your favourite items are just a click away</p></div><div class="content"></div>';
             const overlayFooter = document.createElement('div');
             overlayFooter.className = 'overlay-footer';
             overlayFooter.innerHTML = '<div class="overlay-button"><button class="checkout start" type="button">Start Shopping</button></div>'
@@ -26,21 +24,16 @@ class Cart {
         }
         
         if(cart.length) {
-            document.querySelector(".header-menu__subgroup-container.item-total").innerText = (cart.length)+ ' items';
+            let totalCart = 0;
+            cart.forEach(element => {
+                totalCart += JSON.parse(element).qty;
+            });
+            document.querySelector(".header-menu__subgroup-container.item-total").innerText = (totalCart)+ ' items';
             const overlayContent = document.querySelector(".overlay-content");
             overlayContent.innerHTML = '';
-            // const prevInstance = overlayContent.getElementsByClassName("cart-instance");
-            // // console.log(prevInstance);
-            // Array.prototype.forEach.call(prevInstance, prevInstance => {
-            //     // console.log('instances');
-            //     // console.log(prevInstance);
-            //     prevInstance.remove();
-            // });
             overlayContent.classList.remove('empty');
-            // document.querySelector(".content").remove();
             const cartContainer = document.createElement('div');
             cartContainer.className = "content";
-            // document.querySelector(".cart-empty").style.display = 'none';
             let total = 0;
             prodService.listAllProducts()
             .then(res => {
@@ -93,6 +86,7 @@ class Cart {
                 checkout_button.className = 'checkout proceed';
                 checkout_button.innerHTML = '<div class="proceed">Proceed to Checout</div><div class="cart_total">Rs.'+total+'</div><div class="arrow">></div>'
                 cart_footer.appendChild(checkout_button);
+                let localCart = cart;
                 $(".increase").each((index, el) => {
                     el.addEventListener('click', _ => {
                         let quantity = 0;
@@ -101,14 +95,11 @@ class Cart {
                             if(instObj.product_id == event.target.dataset.id) {
                                 quantity = instObj.qty;
                                 quantity++;
-                                cart.pop(obj);
+                                instObj.qty = quantity;
+                                cart[index] = JSON.stringify(instObj);
                             }
                         });
-                        cart.push(JSON.stringify({
-                            "product_id": event.target.dataset.id, 
-                            "qty": quantity
-                        }));
-                        sessionStorage.setItem("cart", JSON.stringify(cart))
+                        sessionStorage.setItem("cart", JSON.stringify(cart));
                         this.render();
                     });
                 });
@@ -121,20 +112,17 @@ class Cart {
                             if(instObj.product_id == event.target.dataset.id) {
                                 quantity = instObj.qty;
                                 quantity--;
-                                cart.pop(obj);
+                                instObj.qty = quantity;
+                                cart[index] = JSON.stringify(instObj);
                             }
-                            totalItems = (totalItems + instObj.qty)-1;
+                            totalItems = (totalItems + instObj.qty);
                         });
-                        cart.push(JSON.stringify({
-                            "product_id": event.target.dataset.id, 
-                            "qty": quantity
-                        }));
-                        if(totalItems) {
-                            sessionStorage.setItem("cart", JSON.stringify(cart))
-                        }
-                        else {
+                        
+                        sessionStorage.setItem("cart", JSON.stringify(cart));
+                        if(!totalItems) {
                             sessionStorage.removeItem("cart");
-                            document.querySelector(".cart-empty").style.display = 'block';
+                            document.querySelector(".content").innerHTML = '';
+                            document.querySelector(".overlay-content").innerHTML = '<div class="cart-empty"><p>No items in your cart</p><p>Your favourite items are just a click away</p></div><div class="content"></div>'
                             document.querySelector(".content").style.display = 'none';
                             document.querySelector(".promo-message").style.display = 'none';
                             document.querySelector(".checkout.proceed").style.display = 'none';
@@ -168,5 +156,3 @@ class Cart {
         
     }
 }
-
-module.exports = Cart;

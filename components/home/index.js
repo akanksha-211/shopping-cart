@@ -1,9 +1,12 @@
-const CategoryService = require('./CatService');
-const CategoryController = require('./CatController');
+import CategoryService from './CatService';
+import CategoryController from './CatController';
+import cart from '../cart/Cart';
 
 const catService = new CategoryService();
 const catController = new CategoryController(catService);
 
+
+const Cart = new cart();
 catController.render();
 
 var slideIndex = 0;
@@ -64,4 +67,12 @@ function showSlides(n) {
 (document.querySelector(".header-menu__subgroup-container.cart")).addEventListener('click', _ => {
     document.getElementById("overlay").style.display = "block";
     document.body.style.overflow = 'hidden';
+    Cart.render();
 });
+let cartStore = JSON.parse(sessionStorage.getItem("cart")) || [];
+let total = 0;
+cartStore.forEach(element => {
+    total += JSON.parse(element).qty;
+});
+
+document.querySelector(".header-menu__subgroup-container.item-total").innerText = (total)+ ' items';

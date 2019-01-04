@@ -1,5 +1,5 @@
-const Login = require('./Login');
-
+// const Login = require('./Login');
+import Login from './Login';
 const login = new Login();
 
 login.render();

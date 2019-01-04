@@ -1,4 +1,4 @@
-class Register {
+export default class Register {
     constructor() {
     }
     render() {
@@ -56,5 +56,3 @@ class Register {
         article.appendChild(form);
     }
 }
-
-module.exports = Register;

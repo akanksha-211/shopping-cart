@@ -76,6 +76,7 @@
     color: $white;
     font-weight: bold;
     margin: 0 10px;
+    cursor: pointer;
 }
 .cart-instance__desc .times {
     margin: 0 10px;
@@ -122,6 +123,7 @@
 }
 .checkout.proceed{
     display: flex;
+    cursor: pointer;
 }
 .proceed, .cart_total {
     flex: 1;
@@ -147,6 +149,9 @@
     .overlay-content.empty {
         height: 75vh;
     }
+    .cart-instance__update {
+        border-radius: 4px;
+    }
     .overlay-footer {
         height: 20vh; 
     }
@@ -168,6 +173,9 @@ and (max-device-width : 1024px)  {
     }
     .overlay-content, .overlay-content.empty {
         height: 75vh;
+    }
+    .cart-instance__update {
+        border-radius: 4px;
     }
     .overlay-footer {
         height: 20vh; 

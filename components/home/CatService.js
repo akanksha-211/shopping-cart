@@ -11,7 +11,7 @@ class Category {
     }
 }
 
-class CategoryService {
+export default class CategoryService {
     constructor() {
         this.serviceUrl = 'http://localhost:5000';
     }
@@ -41,4 +41,3 @@ class CategoryService {
         }
     }
 }
-module.exports = CategoryService;

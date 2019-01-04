@@ -19,6 +19,7 @@
 }
 .nav-list-item .category-link {
     color: $grey1;
+    cursor: pointer;
 }
 .page-content__productsList {
     display: flex;
@@ -115,12 +116,19 @@ display: none;
         color: white;
         padding: 1em;
     }
-    .category-dropdown.small a{
+    .category-dropdown.small .toggle{
         float: right;
         color: white;
     }
     .nav-list {
         display: none;
+    }
+    .nav-list.small {
+        background: $grey3;
+        position: absolute;
+        width: 90%;
+        padding: 0;
+        left: 5%;
     }
     .page-content__category, .page-content__productsList {
         flex: 100%;

@@ -1,15 +1,14 @@
-const ProductService = require('./ProductsService');
+import ProductService from './ProductsService';
+import cartComponent from '../cart/Cart';
+import CategoryService from '../home/CatService';
 const prodService = new ProductService();
 
-const CategoryService = require('../home/CatService');
 
 const catService = new CategoryService();
 
-const cartComponent = require('../cart/Cart');
-
 const Cart = new cartComponent();
 
-class ProductController{
+export default class ProductController{
     constructor(prodService) {
         this.prodService = prodService;
     }
@@ -22,28 +21,49 @@ class ProductController{
             categoryList.className = 'category-list';
             const categoryDropDown = document.createElement('div');
             categoryDropDown.className = 'category-dropdown small';
-            categoryDropDown.innerHTML = '<span>'+response[0].name+'</span><a class="toggle"><i class="fas fa-caret-down"></i></a>';
-            categoryList.appendChild(categoryDropDown);
+            categoryDropDown.innerHTML = '<div style="margin-bottom: 10px;"><span>'+response[0].name+'</span><a class="toggle"><i class="fas fa-caret-down"></i></a></div>';
             sideNav.appendChild(categoryList);
             const sideNavList = document.createElement('ul');
             sideNavList.className = 'nav-list';
+            const dropDownList = document.createElement('ul');
+            dropDownList.className = 'nav-list small';
             response.forEach(element => {
                 if(element.enabled) {
                     const listItem = document.createElement('li');
+                    const dropDownItem = document.createElement('li');
                     listItem.className = 'nav-list-item';
                     listItem.dataset.attr = element.id;
+                    dropDownItem.className = 'nav-list-item';
+                    dropDownItem.dataset.attr = element.id;
                     const categoryLink = document.createElement('a');
+                    const categoryLinkDropDown = document.createElement('a');
                     categoryLink.className = 'category-link';
+                    categoryLinkDropDown.className = 'category-link';
                     categoryLink.onclick = function(){
                         document.querySelector(".category-dropdown.small span").innerText = element.name;
-                        document.querySelector(".nav-list").style.display = 'none';
+                        if(document.querySelector(".category-dropdown.small").style.display == "block") {
+                            // document.querySelector(".nav-list").classList.remove('small');
+                            document.querySelector(".nav-list").style.display = 'none';
+                        }
+                        self.getProducts(element.id);
+                    }
+                    categoryLinkDropDown.onclick = function(){
+                        document.querySelector(".category-dropdown.small span").innerText = element.name;
+                        if(document.querySelector(".category-dropdown.small").style.display == "block") {
+                            document.querySelector(".nav-list.small").style.display = 'none';
+                        }
                         self.getProducts(element.id);
                     }
                     categoryLink.innerText = element.name;
                     listItem.appendChild(categoryLink);
                     sideNavList.appendChild(listItem);
+                    categoryLinkDropDown.innerText = element.name;
+                    dropDownItem.appendChild(categoryLinkDropDown);
+                    dropDownList.appendChild(dropDownItem);
                 }
             });
+            categoryDropDown.appendChild(dropDownList);
+            categoryList.appendChild(categoryDropDown);
             categoryList.appendChild(sideNavList);
             sideNav.appendChild(categoryList);
         })
@@ -52,11 +72,15 @@ class ProductController{
         
         setTimeout(() => {
             document.querySelector(".toggle").addEventListener('click', _ => {
-                if(document.querySelector(".nav-list").style.display == "" || document.querySelector(".nav-list").style.display == "none") {
-                    document.querySelector(".nav-list").style.display = 'block';
+                if(document.querySelector(".nav-list.small").style.display == "" || document.querySelector(".nav-list.small").style.display == "none") {
+                    // document.querySelector(".nav-list").classList.add('small');
+                    document.querySelector(".nav-list.small").style.display = 'block';
                 }
                 else {
-                    document.querySelector(".nav-list").style.display = 'none';
+                    // document.querySelector(".nav-list").classList.remove('small');
+                    if(document.querySelector(".category-dropdown.small").style.display == "block" || document.querySelector(".category-dropdown.small").style.display == "") {
+                        document.querySelector(".nav-list.small").style.display = 'none';
+                    }
                 }
             }) 
         }, 500);
@@ -78,13 +102,9 @@ class ProductController{
             });
             const buy_now = document.getElementsByClassName("buy-product");
             Array.prototype.forEach.call(buy_now, buy_now => {
-                buy_now.parentElement.addEventListener('click', _ => {
+                buy_now.parentElement.addEventListener('click', event => {
                     event.stopImmediatePropagation();
                     const product_id = ((buy_now.parentElement).querySelector(".product-data").value);
-                    // const product_name = ((buy_now.parentElement).querySelector(".product-data").dataset.attr);
-                    // const product_price = ((buy_now.parentElement).querySelector(".product-data").dataset.price);
-                    // const product_image = ((buy_now.parentElement).querySelector(".product-data").dataset.value);
-                    // console.log(product_id,product_name, product_price, product_image);
                     let quantity = 1;
                     let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
                     // sessionStorage.clear();
@@ -154,5 +174,3 @@ class ProductController{
         .catch(e => console.log('error--- add to cart'));
     }
 }
-
-module.exports = ProductController;
