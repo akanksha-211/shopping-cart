@@ -24,6 +24,7 @@ ul {
     margin-block-end: 0;
     margin-block-start: 0;
     padding-inline-start: 0;
+    margin: 0;
 }
 .LinkContainer__Link {
     display: inline-block;
@@ -59,7 +60,7 @@ ul {
 }
 .header-menu__subgroup-container.header-menu__subgroup-container--cart {
     padding: 5px 10px;
-    background: $grey2;
+    background: $grey3;
 }
 .header-menu__subgroup {
     display: inline-flex;
@@ -82,5 +83,16 @@ ul {
 @media (max-width: 767px) {
     .LinkContainer, .header-menu__subgroup {
         display: none;
+    }
+    .LogoAndLinksMenu__Logo {
+        width: 140px;
+        height: 65px;
+    }
+    .header-container__item.header-container__item--right {
+        align-items: center;
+        top: 1em;
+    }
+    .page-content__products {
+        margin-top: 10px;
     }
 }

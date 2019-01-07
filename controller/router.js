@@ -1,13 +1,13 @@
 const express = require('express');
-const CategoryService = require('../components/home/CatService');
-const CategoryController = require('../components/home/CatController');
+// const CategoryService = require('../components/home/CatService');
+// const CategoryController = require('../components/home/CatController');
 
 const Router = express.Router();
 
 const path = require('path');
 
-const catService = new CategoryService();
-const catController = new CategoryController(catService);
+// const catService = new CategoryService();
+// const catController = new CategoryController(catService);
 
 
 

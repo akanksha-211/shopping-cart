@@ -49,9 +49,9 @@ export default class ProductController{
                     }
                     categoryLinkDropDown.onclick = function(){
                         document.querySelector(".category-dropdown.small span").innerText = element.name;
-                        if(document.querySelector(".category-dropdown.small").style.display == "block") {
+                        // if(document.querySelector(".category-dropdown.small").style.display == "block") {
                             document.querySelector(".nav-list.small").style.display = 'none';
-                        }
+                        // }
                         self.getProducts(element.id);
                     }
                     categoryLink.innerText = element.name;

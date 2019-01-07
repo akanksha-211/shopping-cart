@@ -38,7 +38,7 @@ export default class Register {
         form_group_password.setAttribute("role", "password form group");
         form_group_password.className = 'form-group';
         form_group_password.innerHTML = '<label for="password" class="login--label" tabindex="16" style="visibility: hidden;">Password</label>'+
-        '<input type="password" class="form-control password" id="password" name="password" tabindex="17" placeholder="Password" required>'+
+        '<input type="password" class="form-control password" id="password" name="password" tabindex="17" pattern="[a-zA-Z0-9]{6,}" placeholder="Password" required>'+
         '<em class="errorMessage" style="visibility:hidden;"></em>';
         form.appendChild(form_group_password);
         const form_group_cnfpassword = document.createElement('div');

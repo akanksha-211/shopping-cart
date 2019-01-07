@@ -81,6 +81,7 @@ ul {
   margin-block-end: 0;
   margin-block-start: 0;
   padding-inline-start: 0;
+  margin: 0;
 }
 
 .LinkContainer__Link {
@@ -122,7 +123,7 @@ ul {
 
 .header-menu__subgroup-container.header-menu__subgroup-container--cart {
   padding: 5px 10px;
-  background: #c8c8c8;
+  background: #e2e2e2;
 }
 
 .header-menu__subgroup {
@@ -149,6 +150,20 @@ ul {
   .LinkContainer, .header-menu__subgroup {
     display: none;
   }
+
+  .LogoAndLinksMenu__Logo {
+    width: 140px;
+    height: 65px;
+  }
+
+  .header-container__item.header-container__item--right {
+    align-items: center;
+    top: 1em;
+  }
+
+  .page-content__products {
+    margin-top: 10px;
+  }
 }
 .main.page-content {
   display: flex;
@@ -164,7 +179,7 @@ ul {
 }
 
 .form-group {
-  margin-block-start: 1em;
+  margin-top: 1em;
 }
 
 .form-group .form-control {
@@ -326,7 +341,7 @@ ul {
 }
 
 .nav-list-item {
-  border-bottom: 1px dotted;
+  border-bottom: 1px dotted #c8c8c8;
   padding: 10px 20px;
 }
 
@@ -427,6 +442,10 @@ ul {
 
   .card button.small {
     display: block;
+    width: 50%;
+    position: relative;
+    top: -1em;
+    left: 50%;
   }
 
   .card button.large {
@@ -555,7 +574,7 @@ ul {
 
 .overlay-content {
   background: #e2e2e2;
-  height: 630px;
+  height: 530px;
   color: #000000;
   padding: 1em 0;
   overflow-y: scroll;
@@ -576,12 +595,13 @@ ul {
   background: #ffffff;
   padding: 1em;
   display: flex;
-  margin-block-start: 1em;
+  margin-top: 1em;
 }
 
 .cart-instance__desc {
   margin: 0 10px;
   font-size: 0.75em;
+  flex: 2;
 }
 
 .cart-instance__desc p {
@@ -623,7 +643,6 @@ ul {
 .cart__lowest-price span {
   padding: 10px;
   position: relative;
-  top: -1em;
 }
 
 .overlay-footer {
@@ -635,6 +654,7 @@ ul {
   font-size: 0.5em;
   width: 90%;
   margin: 10px auto;
+  text-align: center;
 }
 
 .overlay-button {

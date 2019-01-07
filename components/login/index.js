@@ -47,7 +47,6 @@ function init(){
                     errorMessage.innerText = 'Please enter a valid email address';
                 }
                 else if(input.type == "password") {
-                    console.dir(input.value);
                     errorMessage.innerText = 'Password must have a alphabet and a number and no spaces';
                 }
             }

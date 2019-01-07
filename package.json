@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "sass --watch ./static/styles/sass/main.scss ./static/styles/styles.css",
+    "start": "node index.js",
     "web": "canned -p 5000 ./model/server"
   },
   "author": "Akanksha Wadhwa",

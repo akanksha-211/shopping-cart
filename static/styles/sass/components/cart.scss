@@ -41,7 +41,7 @@
 }
 .overlay-content {
     background: $grey3;
-    height: 630px;
+    height: 530px;
     color: $black;
     padding: 1em 0;
     overflow-y: scroll;
@@ -59,11 +59,13 @@
     background: $white;
     padding: 1em;
     display: flex;
-    margin-block-start: 1em;
+    // margin-block-start: 1em;
+    margin-top: 1em;
 }
 .cart-instance__desc {
     margin: 0 10px;
     font-size: 0.75em;
+    flex: 2;
 }
 .cart-instance__desc p {
     margin-block-start: 0;
@@ -98,7 +100,7 @@
 .cart__lowest-price span{
     padding: 10px;
     position: relative;
-    top: -1em;
+    // top: -1em;
 }
 .overlay-footer {
     background: $white;
@@ -108,6 +110,7 @@
     font-size: 0.5em;
     width: 90%;
     margin: 10px auto;
+    text-align: center;
 }
 .overlay-button {
     width: 80%;
